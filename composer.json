@@ -1,0 +1,17 @@
+{
+    "name": "gnikolovski/commerce_gnikolovski",
+    "description": "Drupal Commerce 2.x - some useful stuff.",
+    "type": "drupal-module",
+    "require": {
+        "drupal/core": "~8.6",
+        "drupal/commerce_shipping": "^2.0@beta"
+    },
+    "authors": [
+        {
+            "name": "Goran Nikolovski",
+            "email": "nikolovski84@gmail.com",
+            "homepage": "http://gorannikolovski.com",
+            "role": "Developer"
+        }
+    ]
+}

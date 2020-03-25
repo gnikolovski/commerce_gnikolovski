@@ -25,6 +25,7 @@ class ProductFlagCondition extends ConditionBase {
   public function defaultConfiguration() {
     return [
       'flag' => NULL,
+      'negate' => FALSE,
     ] + parent::defaultConfiguration();
   }
 
@@ -39,6 +40,12 @@ class ProductFlagCondition extends ConditionBase {
       '#options' => $this->getFlags(),
       '#required' => TRUE,
       '#default_value' => $this->configuration['flag'],
+    ];
+
+    $form['negate'] = [
+      '#title' => $this->t('Negate'),
+      '#type' => 'checkbox',
+      '#default_value' => $this->configuration['negate'],
     ];
 
     return $form;
@@ -71,6 +78,7 @@ class ProductFlagCondition extends ConditionBase {
 
     $values = $form_state->getValue($form['#parents']);
     $this->configuration['flag'] = $values['flag'];
+    $this->configuration['negate'] = $values['negate'];
   }
 
   /**
@@ -85,28 +93,30 @@ class ProductFlagCondition extends ConditionBase {
     $flag_service = \Drupal::service('flag');
     $flag = $flag_service->getFlagById($this->configuration['flag']);
 
+    $condition = $this->configuration['negate'];
+
     if (!$flag) {
-      return FALSE;
+      return $condition;
     }
 
     foreach ($order->getItems() as $item) {
       $variation = $item->getPurchasedEntity();
       if (!$variation) {
-        return FALSE;
+        return $condition;
       }
 
       $product = $variation->getProduct();
       if (!$product) {
-        return FALSE;
+        return $condition;
       }
 
       $flagging = $flag_service->getFlagging($flag, $product);
       if (!$flagging) {
-        return FALSE;
+        return $condition;
       }
     }
 
-    return TRUE;
+    return !$condition;
   }
 
 }

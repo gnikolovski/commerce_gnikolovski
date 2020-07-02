@@ -53,22 +53,22 @@ class OrderPriceRange extends ConditionBase {
       '#title' => $this->t('Type'),
       '#type' => 'select',
       '#options' => [
-        'subtotal' => t('Limit by subtotal price'),
-        'total' => t('Limit by total price'),
+        'subtotal' => $this->t('Limit by subtotal price'),
+        'total' => $this->t('Limit by total price'),
       ],
       '#required' => TRUE,
       '#default_value' => $this->configuration['type'],
-      '#description' => t('Subtotal price is price without any order adjustments (fees, promotions, taxes, shipping, etc.). Total price is equal to the price of all products in the cart and all adjustments.'),
+      '#description' => $this->t('Subtotal price is price without any order adjustments (fees, promotions, taxes, shipping, etc.). Total price is equal to the price of all products in the cart and all adjustments.'),
     ];
     $form['from_amount'] = [
       '#type' => 'commerce_price',
-      '#title' => t('From amount'),
+      '#title' => $this->t('From amount'),
       '#default_value' => $from_amount,
       '#required' => TRUE,
     ];
     $form['to_amount'] = [
       '#type' => 'commerce_price',
-      '#title' => t('To amount'),
+      '#title' => $this->t('To amount'),
       '#default_value' => $to_amount,
       '#required' => TRUE,
     ];

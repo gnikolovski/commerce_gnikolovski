@@ -17,7 +17,7 @@ Provides some useful Drupal Commerce 2.x stuff.
 REQUIREMENTS
 ------------
 
-This module requires Drupal Shipping 2.x to be installed.
+This module requires Drupal Commerce Shipping 2.x to be installed.
 
 
 INSTALLATION

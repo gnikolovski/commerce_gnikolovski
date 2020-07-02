@@ -1,6 +1,6 @@
 {
     "name": "gnikolovski/commerce_gnikolovski",
-    "description": "Some useful Drupal Commerce 2.x stuff.",
+    "description": "Provides some useful Drupal Commerce 2.x stuff.",
     "type": "drupal-module",
     "homepage": "https://github.com/gnikolovski/commerce_gnikolovski",
     "authors": [
@@ -18,7 +18,7 @@
     "license": "GPL-2.0+",
     "minimum-stability": "dev",
     "require": {
-        "drupal/commerce": "^2.16",
+        "drupal/commerce_shipping": "^2.0",
         "drupal/core": "^8 || ^9"
     }
 }

@@ -3,6 +3,6 @@ type: module
 description: 'Provides some useful Drupal Commerce 2.x stuff.'
 package: 'Commerce (contrib)'
 core: 8.x
-core_version_requirement: ^8 || ^9
+core_version_requirement: ^8 || ^9 || ^10
 dependencies:
   - commerce_shipping:commerce_shipping
